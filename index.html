@@ -15,6 +15,7 @@
       const url = 'https://' + domainName + '/services/oauth2/authorize?client_id=' + client_id + '&redirect_uri=' + redirect_uri + '&response_type=' + response_type; 
       window.location.replace(url);
     } else {
+      const queryString = window.location.search;
       const urlParams = new URLSearchParams(queryString);
       const oauthtoken = urlParams.search('code');
       const appName = 'c:helloWorldDependency';
