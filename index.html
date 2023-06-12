@@ -32,7 +32,13 @@
             });
             
             response.json().then(data => {
-                $Lightning.use('c:HelloWorldDependency',
+                
+              console.log(JSON.parse(JSON.stringify(data))['access_token']);
+              console.log(JSON.stringify(data));
+            });
+        }
+        getIt();
+        $Lightning.use('c:HelloWorldDependency',
                      function() {
                       $Lightning.createComponent(
                         'c:helloWorld',
@@ -40,12 +46,7 @@
                         targetElement,
                         function(cmp) {
                           console.log('lightning component created');
-      });}, lightningEndpoint, JSON.parse(JSON.stringify(data))['access_token']);
-              console.log(JSON.parse(JSON.stringify(data))['access_token']);
-              console.log(JSON.stringify(data));
-            });
-        }
-        getIt();
+      });}, lightningEndpoint, JSON.parse(JSON.stringify(response.json()))['access_token']);
 
         
     </script> 
