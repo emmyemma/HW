@@ -2,8 +2,17 @@
   <script src="https://cunning-wolf-50qhhu-dev-ed.trailblaze.my.site.com/lightning/lightning.out.js"></script>
   <div data-lightning-out="true"></div>
   <script>
-    
-    // only run OAuth if there is no code, otherwise infinite loop
+    const thisurl = window.location.href;
+    if(!thisurl.includes('code') && oauthcode == null) {
+      // get authorization code
+      const domainName = 'cunning-wolf-50qhhu-dev-ed.trailblaze.lightning.force.com';
+      const client_id = '3MVG9ux34Ig8G5eoAUalnJI3xuV1f6AdldGsAIBW54QigSpW1W0B9rCawuuRFZ.ls.btbUdurx3x3B2vA_wG0';
+      const redirect_uri = 'https://emmyemma.github.io/HW/';
+      const response_type = 'code';
+      const url = 'https://' + domainName + '/services/oauth2/authorize?client_id=' + client_id + '&redirect_uri=' + redirect_uri + '&response_type=' + response_type; 
+      window.location.replace(url);
+    } 
+    var oauthcode = '';
     async function getResponse() {
       const queryString = window.location.search;
       const urlParams = new URLSearchParams(queryString);
@@ -44,20 +53,6 @@
       });}, lightningEndpoint, oauthcode);
       http.send(params);
     }
-      
-    const thisurl = window.location.href;
-    var oauthcode = null;
-    if(!thisurl.includes('code') && oauthcode == null) {
-      // get authorization code
-      const domainName = 'cunning-wolf-50qhhu-dev-ed.trailblaze.lightning.force.com';
-      const client_id = '3MVG9ux34Ig8G5eoAUalnJI3xuV1f6AdldGsAIBW54QigSpW1W0B9rCawuuRFZ.ls.btbUdurx3x3B2vA_wG0';
-      const redirect_uri = 'https://emmyemma.github.io/HW/';
-      const response_type = 'code';
-      const url = 'https://' + domainName + '/services/oauth2/authorize?client_id=' + client_id + '&redirect_uri=' + redirect_uri + '&response_type=' + response_type; 
-      window.location.replace(url);
-    } else if(oauthcode == null) {
-      // get access token
-     oauthcode = getResponse(); 
-    }
+    getResponse();
   </script>
 </html>
