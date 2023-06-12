@@ -19,7 +19,7 @@
             'Access-Control-Allow-Methods': 'GET, POST, PATCH, PUT, DELETE, OPTIONS',
             'Access-Control-Allow-Headers': 'Origin, Content-Type, X-Auth-Token'
           },
-        body: "grant_type=authorization_code&code=`${code}`&client_id=`${client_id}`&client_secret=`${client_secret}`&redirect_uri=`${redirect_uri}`/"
+        body: "grant_type=authorization_code&code=`${code}`&client_id=`${client_id}`&client_secret=`${client_secret}`&redirect_uri=`${redirect_uri}`"
       });
 
           response.json().then(data => {
