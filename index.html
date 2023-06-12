@@ -1,58 +1,10 @@
 <html>
-  <script src="https://cunning-wolf-50qhhu-dev-ed.trailblaze.my.site.com/lightning/lightning.out.js"></script>
-  <div data-lightning-out="true"></div>
-  <script>
-    // if URL does not have auth code, get it
-      const client_id = '3MVG9ux34Ig8G5eoAUalnJI3xuV1f6AdldGsAIBW54QigSpW1W0B9rCawuuRFZ.ls.btbUdurx3x3B2vA_wG0';
-      const redirect_uri = 'https://emmyemma.github.io/HW/';
-    if(!window.location.href.includes('code')) {
-      // get authorization code
-      const domainName = 'cunning-wolf-50qhhu-dev-ed.trailblaze.lightning.force.com';
-      const response_type = 'code';
-      const url1 = 'https://' + domainName + '/services/oauth2/authorize?client_id=' + client_id + '&redirect_uri=' + redirect_uri + '&response_type=' + response_type; 
-      window.location.replace(url1);
-    }
-    
-    // Variable declaration 
-      const queryString = window.location.search;
-      const urlParams = new URLSearchParams(queryString);
-      const code = urlParams.get('code');
-      const client_secret = '89A1CDA8BE3B59E8483F173BBB1AC741E93866E388B8FB9DD904538F6A58E86B';
-      const url = 'https://cunning-wolf-50qhhu-dev-ed.trailblaze.my.salesforce.com/services/oauth2/token';
-      var oauthcode = '';
-      const appName = 'c:helloWorldDependency';
-      const componentName = 'c:helloWorld';
-      const lightningEndpoint = 'https://cunning-wolf-50qhhu-dev-ed.trailblaze.my.site.com';
-      const targetElement = document.querySelector("[data-lightning-out]");
-      const componentAttributes = {};
-    
-      async function getResponse() {
-          var http = new XMLHttpRequest();
-          var params = "grant_type=authorization_code&code=" + code + "&client_id=" + client_id + "&client_secret=" + client_secret + "&redirect_uri=" + redirect_uri;
-          http.open('POST', url, true);
-          http.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
-          http.setRequestHeader('Access-Control-Allow-Origin', '*');
-          http.onreadystatechange = function() {//Call a function when the state changes.
-          if(http.readyState == 4 && http.status == 200) {
-            let text = JSON.parse(http.responseText);
-            oauthcode = text['access_token'];
-            return oauthcode;
-            console.log(oauthtoken);
-          }
-            http.send(params);
-       }
-      }
-      
-      oauthcode = getResponse();
-      $Lightning.use(appName,
-                     function() {
-                      $Lightning.createComponent(
-                        componentName,
-                        componentAttributes,
-                        targetElement,
-                        function(cmp) {
-                          console.log('lightning component created');
-      });}, lightningEndpoint, oauthcode);
-    
-  </script>
+    <script src="https://cunning-wolf-50qhhu-dev-ed.trailblaze.my.site.com/lightning/lightning.out.js"></script>
+    <div data-lightning-out="true"></div>
+    <script>
+        const domainName = 'cunning-wolf-50qhhu-dev-ed.trailblaze.lightning.force.com';
+        const response_type = 'code';
+        const url1 = 'https://' + domainName + '/services/oauth2/authorize?client_id=' + client_id + '&redirect_uri=' + redirect_uri + '&response_type=' + response_type; 
+        window.location.replace(url1);
+    </script> 
 </html>
