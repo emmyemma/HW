@@ -30,7 +30,7 @@
             });
             
             response.json().then(data => {
-                respo = JSON.stringify(data);
+                respo = JSON.parse(JSON.stringify(data));
               console.log(JSON.stringify(data));
             });
         }
