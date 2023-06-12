@@ -30,7 +30,9 @@
             });
             
             response.json().then(data => {
-                respo = JSON.stringify(data);
+              console.log(JSON.parse(JSON.stringify(data))['access_token']);
+               console.log(JSON.parse(JSON.stringify(data)));
+                
               console.log(JSON.stringify(data));
             });
         }
