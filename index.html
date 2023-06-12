@@ -3,11 +3,11 @@
   <div data-lightning-out="true"></div>
   <script>
     // if URL does not have auth code, get it
+      const client_id = '3MVG9ux34Ig8G5eoAUalnJI3xuV1f6AdldGsAIBW54QigSpW1W0B9rCawuuRFZ.ls.btbUdurx3x3B2vA_wG0';
+      const redirect_uri = 'https://emmyemma.github.io/HW/';
     if(!window.location.href.includes('code')) {
       // get authorization code
       const domainName = 'cunning-wolf-50qhhu-dev-ed.trailblaze.lightning.force.com';
-      const client_id = '3MVG9ux34Ig8G5eoAUalnJI3xuV1f6AdldGsAIBW54QigSpW1W0B9rCawuuRFZ.ls.btbUdurx3x3B2vA_wG0';
-      const redirect_uri = 'https://emmyemma.github.io/HW/';
       const response_type = 'code';
       const url = 'https://' + domainName + '/services/oauth2/authorize?client_id=' + client_id + '&redirect_uri=' + redirect_uri + '&response_type=' + response_type; 
       window.location.replace(url);
@@ -16,9 +16,7 @@
       const queryString = window.location.search;
       const urlParams = new URLSearchParams(queryString);
       const code = urlParams.get('code');
-      const client_id = '3MVG9ux34Ig8G5eoAUalnJI3xuV1f6AdldGsAIBW54QigSpW1W0B9rCawuuRFZ.ls.btbUdurx3x3B2vA_wG0';
       const client_secret = '89A1CDA8BE3B59E8483F173BBB1AC741E93866E388B8FB9DD904538F6A58E86B';
-      const redirect_uri = 'https://emmyemma.github.io/HW/';
       const url = 'https://cunning-wolf-50qhhu-dev-ed.trailblaze.my.salesforce.com/services/oauth2/token';
       var oauthcode = '';
       const appName = 'c:helloWorldDependency';
