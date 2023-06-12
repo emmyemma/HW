@@ -4,18 +4,7 @@
   <script>
     
     // only run OAuth if there is no code, otherwise infinite loop
-    const thisurl = window.location.href;
-    const oauthcode = null;
-    if(!thisurl.includes('code') && oauthcode == null) {
-      // get authorization code
-      const domainName = 'cunning-wolf-50qhhu-dev-ed.trailblaze.lightning.force.com';
-      const client_id = '3MVG9ux34Ig8G5eoAUalnJI3xuV1f6AdldGsAIBW54QigSpW1W0B9rCawuuRFZ.ls.btbUdurx3x3B2vA_wG0';
-      const redirect_uri = 'https://emmyemma.github.io/HW/';
-      const response_type = 'code';
-      const url = 'https://' + domainName + '/services/oauth2/authorize?client_id=' + client_id + '&redirect_uri=' + redirect_uri + '&response_type=' + response_type; 
-      window.location.replace(url);
-    } else if(oauthcode == null) {
-      // get access token
+    async function getResponse() {
        const code = urlParams.get('code');
       const params = "grant_type=authorization_code&code=" + code + "&client_id=3MVG9ux34Ig8G5eoAUalnJI3xuV1f6AdldGsAIBW54QigSpW1W0B9rCawuuRFZ.ls.btbUdurx3x3B2vA_wG0&client_secret=89A1CDA8BE3B59E8483F173BBB1AC741E93866E388B8FB9DD904538F6A58E86B&redirect_uri=https://emmyemma.github.io/HW";
       const response = await fetch("cunning-wolf-50qhhu-dev-ed.trailblaze.lightning.force.com/services/oauth2/token?" + params, {
@@ -28,6 +17,21 @@
           response.json().then(data => {
             console.log(JSON.stringify(data));
           });
+    }
+      
+    const thisurl = window.location.href;
+    const oauthcode = null;
+    if(!thisurl.includes('code') && oauthcode == null) {
+      // get authorization code
+      const domainName = 'cunning-wolf-50qhhu-dev-ed.trailblaze.lightning.force.com';
+      const client_id = '3MVG9ux34Ig8G5eoAUalnJI3xuV1f6AdldGsAIBW54QigSpW1W0B9rCawuuRFZ.ls.btbUdurx3x3B2vA_wG0';
+      const redirect_uri = 'https://emmyemma.github.io/HW/';
+      const response_type = 'code';
+      const url = 'https://' + domainName + '/services/oauth2/authorize?client_id=' + client_id + '&redirect_uri=' + redirect_uri + '&response_type=' + response_type; 
+      window.location.replace(url);
+    } else if(oauthcode == null) {
+      // get access token
+     getResponse();
       
     } else {
       const queryString = window.location.search;
