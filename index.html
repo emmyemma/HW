@@ -40,9 +40,7 @@
     } else if(oauthcode == null) {
       // get access token
      oauthcode = getResponse();
-      
-    } else {
-      const queryString = window.location.search;
+     const queryString = window.location.search;
       const urlParams = new URLSearchParams(queryString);
       const appName = 'c:helloWorldDependency';
       const componentName = 'c:helloWorld';
