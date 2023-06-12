@@ -19,8 +19,9 @@
       http.setRequestHeader('Access-Control-Allow-Origin', '*');
       http.onreadystatechange = function() {//Call a function when the state changes.
       if(http.readyState == 4 && http.status == 200) {
-        alert(http.responseText.access_token);
-        return http.responseText.access_token;
+        let text = JSOSN.parse(http.responseText);
+        alert(text['access_token']);
+        return text['access_token'];
         }
       }
       http.send(params);
