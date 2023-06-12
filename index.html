@@ -8,6 +8,8 @@
         const client_id = '3MVG9ux34Ig8G5eoAUalnJI3xuV1f6AdldGsAIBW54QigSpW1W0B9rCawuuRFZ.ls.btbUdurx3x3B2vA_wG0';
         const redirect_uri = 'https://emmyemma.github.io/HW/';
         const url1 = 'https://' + domainName + '/services/oauth2/authorize?client_id=' + client_id + '&redirect_uri=' + redirect_uri + '&response_type=' + response_type; 
+        const targetElement = document.querySelector("[data-lightning-out]");
+      const lightningEndpoint = 'https://cunning-wolf-50qhhu-dev-ed.trailblaze.my.site.com';
 
         // If access code is not yet received, make user login.
         if(!window.location.href.includes('code')) window.location.replace(url1);
@@ -30,17 +32,21 @@
             });
             
             response.json().then(data => {
+                $Lightning.use('c:HelloWorldDependency',
+                     function() {
+                      $Lightning.createComponent(
+                        'c:helloWorld',
+                          {},
+                        targetElement,
+                        function(cmp) {
+                          console.log('lightning component created');
+      });}, lightningEndpoint, JSON.parse(JSON.stringify(data))['access_token']);
               console.log(JSON.parse(JSON.stringify(data))['access_token']);
-               console.log(JSON.parse(JSON.stringify(data)));
-                
               console.log(JSON.stringify(data));
             });
         }
         getIt();
-        console.log(respo);
-       console.log(respo.access_token);
-        console.log(respo.substr(17,129))
-        console.log(auth_token);
+
         
     </script> 
 </html>
