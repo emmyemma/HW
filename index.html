@@ -38,13 +38,14 @@
           if(http.readyState == 4 && http.status == 200) {
             let text = JSON.parse(http.responseText);
             oauthcode = text['access_token'];
+            return oauthcode;
             console.log(oauthtoken);
           }
             http.send(params);
        }
       }
       
-      getResponse();
+      oauthcode = getResponse();
       $Lightning.use(appName,
                      function() {
                       $Lightning.createComponent(
