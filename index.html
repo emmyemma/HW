@@ -14,22 +14,24 @@
       const response_type = 'code';
       const url = 'https://' + domainName + '/services/oauth2/authorize?client_id=' + client_id + '&redirect_uri=' + redirect_uri + '&response_type=' + response_type; 
       window.location.replace(url);
+    } else {
+      const urlParams = new URLSearchParams(queryString);
+      const oauthtoken = urlParams.search('code');
+      const appName = 'c:helloWorldDependency';
+      const componentName = 'c:helloWorld';
+      const lightningEndpoint = 'https://cunning-wolf-50qhhu-dev-ed.trailblaze.my.site.com';
+      const targetElement = document.querySelector("[data-lightning-out]");
+      const componentAttributes = {};
+
+      $Lightning.use(appName,
+                     function() {
+                      $Lightning.createComponent(
+                        componentName,
+                        componentAttributes,
+                        targetElement,
+                        function(cmp) {
+                          console.log('lightning component created');
+      });}, lightningEndpoint, oauthtoken);
     }
-    
-    const appName = 'c:helloWorldDependency';
-    const componentName = 'c:helloWorld';
-    const lightningEndpoint = 'https://cunning-wolf-50qhhu-dev-ed.trailblaze.my.site.com';
-    const targetElement = document.querySelector("[data-lightning-out]");
-    const componentAttributes = {};
-    
-    $Lightning.use(appName,
-                   function() {
-                    $Lightning.createComponent(
-                      componentName,
-                      componentAttributes,
-                      targetElement,
-                      function(cmp) {
-                        console.log('lightning component created');
-    });}, lightningEndpoint);
   </script>
 </html>
