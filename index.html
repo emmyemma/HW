@@ -30,11 +30,12 @@
             });
             
             response.json().then(data => {
-                respo = JSON.parse(data);
+                respo = JSON.stringify(data);
               console.log(JSON.stringify(data));
             });
         }
         getIt();
+        console.log(respo);
         auth_token = respo['access_token'];
         console.log(auth_token);
         
