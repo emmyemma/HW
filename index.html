@@ -13,7 +13,7 @@
       const redirect_uri = 'https://emmyemma.github.io/HW';
       const url = 'https://cunning-wolf-50qhhu-dev-ed.trailblaze.my.salesforce.com/services/oauth2/token';
       var http = new XMLHttpRequest();
-      var params = "grant_type=authorization_code&code=" + code + "&client_id=" + client_id + "&client_secret=" + client_sceret + "&redirect_uri=" + redirect_uri;
+      var params = "grant_type=authorization_code&code=" + code + "&client_id=" + client_id + "&client_secret=" + client_secret + "&redirect_uri=" + redirect_uri;
       http.open('POST', url, true);
       http.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
       http.setRequestHeader('Access-Control-Allow-Origin', '*');
