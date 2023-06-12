@@ -12,6 +12,7 @@
       const url = 'https://' + domainName + '/services/oauth2/authorize?client_id=' + client_id + '&redirect_uri=' + redirect_uri + '&response_type=' + response_type; 
       window.location.replace(url);
     } 
+    
     var oauthcode = '';
     async function getResponse() {
       const queryString = window.location.search;
@@ -29,13 +30,10 @@
       http.onreadystatechange = function() {//Call a function when the state changes.
       if(http.readyState == 4 && http.status == 200) {
         let text = JSON.parse(http.responseText);
-        alert(text['access_token']);
         //return text['access_token'];
         }
       }
       oauthcode = text['access_token'];
-      const queryString = window.location.search;
-      const urlParams = new URLSearchParams(queryString);
       const appName = 'c:helloWorldDependency';
       const componentName = 'c:helloWorld';
       const lightningEndpoint = 'https://cunning-wolf-50qhhu-dev-ed.trailblaze.my.site.com';
