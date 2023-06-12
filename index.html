@@ -17,7 +17,7 @@
     } else {
       const queryString = window.location.search;
       const urlParams = new URLSearchParams(queryString);
-      const oauthtoken = urlParams.search('code');
+      const oauthtoken = urlParams.get('code');
       const appName = 'c:helloWorldDependency';
       const componentName = 'c:helloWorld';
       const lightningEndpoint = 'https://cunning-wolf-50qhhu-dev-ed.trailblaze.my.site.com';
