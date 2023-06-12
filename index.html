@@ -14,8 +14,7 @@
             'Content-Type': 'application/x-www-form-urlencoded'
           },
         body: JSON.stringify({ "grant_type": "authorization_code", "client_id": "3MVG9ux34Ig8G5eoAUalnJI3xuV1f6AdldGsAIBW54QigSpW1W0B9rCawuuRFZ.ls.btbUdurx3x3B2vA_wG0", "client_secret": "89A1CDA8BE3B59E8483F173BBB1AC741E93866E388B8FB9DD904538F6A58E86B", "redirect_uri": "https://emmyemma.github.io/HW", "code": `${code}` })
-           })
-          });
+      });
 
           response.json().then(data => {
             console.log(JSON.stringify(data));
