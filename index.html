@@ -11,7 +11,7 @@
 
         // If access code is not yet received, make user login.
         if(!window.location.href.includes('code')) window.location.replace(url1);
-
+        else {
         // Function to send post request to get auth token
         
             const queryString = window.location.search;
@@ -30,6 +30,7 @@
             };
             http.send(params);
         
+        }
         }
     </script> 
 </html>
