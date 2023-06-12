@@ -33,7 +33,11 @@
             });
             
             response.json().then(data => {
-              var x = JSON.parse(JSON.stringify(data))['access_token'];
+              console.log(JSON.parse(JSON.stringify(data))['access_token']);
+              console.log(JSON.stringify(data));
+            });
+         var x = JSON.parse(JSON.stringify(response.json()))['access_token'];
+            console.log(x);
               $Lightning.use('c:HelloWorldDependency',
                      function() {
                       $Lightning.createComponent(
@@ -43,9 +47,6 @@
                         function(cmp) {
                           console.log('lightning component created');
       });}, lightningEndpoint, x);
-              console.log(JSON.parse(JSON.stringify(data))['access_token']);
-              console.log(JSON.stringify(data));
-            });
         }
 
         getIt();
