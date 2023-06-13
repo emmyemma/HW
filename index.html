@@ -2,7 +2,8 @@
     <script src="https://cunning-wolf-50qhhu-dev-ed.trailblaze.my.site.com/lightning/lightning.out.js"></script>
     <div data-lightning-out="true"></div>
     <script>
-        if(!window.location.href.contains("code")) {
+        let str = window.location.href;
+        if(!str.contains("code")) {
             //Obtain authorization code 
             redirectUrl = 'https://prism-petsmart--ehanretty.sandbox.salesforce.com/services/oauth2/authorize?client_id=3MVG9OI03ecbG2VpSxAekLC2d0bxtjRgDhV5sYYXjliaLhV.qWXA1dhCIVUyci0jifq3mCXvOg5p9sIu6c2b1&redirect_uri=https://emmyemma.github.io/HW&response_type=code';
             window.location = redirectUrl;
